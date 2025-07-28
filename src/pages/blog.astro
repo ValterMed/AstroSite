@@ -1,0 +1,127 @@
+---
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <header>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <h1>
+        DevSecOps: Integrando Seguridad en el Ciclo de Vida del Desarrollo
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="#introduccion">Introducción</a></li>
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#practicas">Prácticas Clave</a></li>
+          <li><a href="#herramientas">Herramientas</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <article id="introduccion">
+        <h2>¿Qué es DevSecOps?</h2>
+        <p>
+          DevSecOps es la evolución natural de DevOps que incorpora prácticas de
+          seguridad desde las primeras etapas del ciclo de desarrollo de
+          software. A diferencia de los enfoques tradicionales donde la
+          seguridad se consideraba al final, DevSecOps integra controles de
+          seguridad de forma continua.
+        </p>
+        <img
+          src="devsecops-cycle.png"
+          alt="Ciclo de vida DevSecOps"
+          width="600"
+        />
+      </article>
+
+      <article id="beneficios">
+        <h2>Beneficios de Adoptar DevSecOps</h2>
+        <ul>
+          <li>Detección temprana de vulnerabilidades</li>
+          <li>Reducción de costos asociados a parches de seguridad</li>
+          <li>Cumplimiento normativo más eficiente</li>
+          <li>Mayor colaboración entre equipos</li>
+          <li>Entrega más rápida de software seguro</li>
+        </ul>
+      </article>
+
+      <article id="practicas">
+        <h2>Prácticas Clave de DevSecOps</h2>
+        <section>
+          <h3>Shift Left Security</h3>
+          <p>
+            Implementar controles de seguridad desde la fase de diseño y
+            desarrollo, no solo en producción.
+          </p>
+        </section>
+        <section>
+          <h3>Automatización de Seguridad</h3>
+          <p>
+            Integrar herramientas de escaneo automático (SAST, DAST, IAST) en la
+            tubería de CI/CD.
+          </p>
+        </section>
+        <section>
+          <h3>Infraestructura como Código Seguro</h3>
+          <p>
+            Aplicar principios de seguridad al código de infraestructura
+            (Terraform, CloudFormation).
+          </p>
+        </section>
+      </article>
+
+      <article id="herramientas">
+        <h2>Herramientas Populares en DevSecOps</h2>
+        <table>
+          <tr>
+            <th>Categoría</th>
+            <th>Herramienta</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td>SAST</td>
+            <td>SonarQube</td>
+            <td>Análisis estático de código para detectar vulnerabilidades</td>
+          </tr>
+          <tr>
+            <td>DAST</td>
+            <td>OWASP ZAP</td>
+            <td>Escaneo dinámico de aplicaciones web</td>
+          </tr>
+          <tr>
+            <td>Contenedores</td>
+            <td>Anchore</td>
+            <td>Escaneo de imágenes de contenedores</td>
+          </tr>
+        </table>
+      </article>
+
+      <aside>
+        <h3>Recursos Adicionales</h3>
+        <ul>
+          <li><a href="https://owasp.org/">OWASP Foundation</a></li>
+          <li><a href="https://www.devsecops.org/">DevSecOps Community</a></li>
+          <li>
+            <a href="https://nvd.nist.gov/">NIST Vulnerability Database</a>
+          </li>
+        </ul>
+      </aside>
+    </main>
+
+    <footer>
+      <p>© 2023 Blog de DevSecOps. Todos los derechos reservados.</p>
+      <p>Contacto: info@devsecopsblog.com</p>
+    </footer>
+  </body>
+</html>
