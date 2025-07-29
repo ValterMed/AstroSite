@@ -1,6 +1,37 @@
 ---
+import "../styles/global.css";
+import Navigation from "../components/Navigation.astro";
 
+const pageTitle = "Sobre Mí";
+
+const identity = {
+  firstName: "John Doe",
+  country: "Canada",
+  occupation: "Escrítor Técnico",
+  hobbies: ["fotografía", "mirar de aves", "beísbol"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
+
+<style define:vars={{ skillColor, fontWeight, textCase }}>
+  h1 {
+    color: purple;
+    font-size: 4rem;
+  }
+  .skill {
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+  }
+</style>
 
 <html lang="en">
   <head>
@@ -8,24 +39,244 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+    <header class="site-header">
+      <Navigation />
+    </header>
+    <main class="about-container">
+      <section class="about-hero">
+        <h1 class="about-title">Mi Trayectoria en el Mundo Tech</h1>
+        <p class="about-subtitle">
+          De Física a Sistemas: Un camino no lineal hacia la ingeniería de
+          software y seguridad
+        </p>
+      </section>
 
-    <h1>About Me</h1>
-    <h2>... and my new Astro site!</h2>
+      <section>
+        <p>Aquí están algunos hechos sobre mí:</p>
+        <ul>
+          <li>Mi nombre es {identity.firstName}.</li>
+          <li>
+            Vivo en {identity.country} y trabajo como {identity.occupation}.
+          </li>
+          {
+            identity.hobbies.length >= 2 && (
+              <li>
+                Dos de mis hobbies son: {identity.hobbies[0]} y{" "}
+                {identity.hobbies[1]}
+              </li>
+            )
+          }
+        </ul>
+        <p>Tengo habilidades en:</p>
+        <ul>
+          {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
+      </section>
 
-    <p>
-      I am working through Astro's introductory tutorial. This is the second
-      page on my website, and it's the first one I built myself!
-    </p>
+      <section>
+        {happy && <p>I am happy to be learning Astro!</p>}
 
-    <p>
-      This site will update as I complete more of the tutorial, so keep checking
-      back and see how my journey is going!
-    </p>
+        {finished && <p>I finished this tutorial!</p>}
+
+        {
+          goal === 3 ? (
+            <p>My goal is to finish in 3 days.</p>
+          ) : (
+            <p>My goal is not 3 days.</p>
+          )
+        }
+      </section>
+
+      <section class="journey-section">
+        <h2 class="section-title">🚀 Mi Viaje Académico</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>2010-2012: La Fascinación por la Física</h3>
+            <p>
+              Comencé estudiando Ingeniería Física, donde desarrollé un
+              pensamiento analítico riguroso y una pasión por resolver problemas
+              complejos. Aunque amaba la teoría, sentía que quería un campo con
+              aplicaciones más inmediatas.
+            </p>
+          </div>
+          <div class="timeline-item">
+            <h3>2013-2015: El Cambio al Software</h3>
+            <p>
+              Me trasladé a Ingeniería de Software, donde descubrí mi verdadera
+              pasión por la creación de sistemas y soluciones digitales. Aquí
+              fue donde escribí mis primeras líneas de código "serias" y entendí
+              el poder de la programación.
+            </p>
+          </div>
+          <div class="timeline-item">
+            <h3>2016-2019: Ingeniería en Sistemas Online</h3>
+            <p>
+              Mientras ya trabajaba en la industria, completé mi título en
+              Ingeniería en Sistemas mediante un programa en línea. Esta
+              experiencia me enseñó la disciplina del autoaprendizaje y cómo
+              balancear trabajo con estudios.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience-section">
+        <h2 class="section-title">💼 Mi Experiencia Profesional</h2>
+        <div class="experience-grid">
+          <div class="experience-card">
+            <h3>Frontend Developer (2014-2016)</h3>
+            <p>
+              Mis primeros pasos profesionales fueron construyendo interfaces
+              con JavaScript, HTML5 y CSS3. Aprendí la importancia de la UX y la
+              accesibilidad.
+            </p>
+            <ul class="tech-list">
+              <li>React</li>
+              <li>AngularJS</li>
+              <li>SASS</li>
+            </ul>
+          </div>
+          <div class="experience-card">
+            <h3>Backend Engineer (2016-2018)</h3>
+            <p>
+              Migré al lado del servidor, trabajando con APIs, bases de datos y
+              lógica de negocio. Aquí solidifiqué mis fundamentos de
+              arquitectura de software.
+            </p>
+            <ul class="tech-list">
+              <li>Node.js</li>
+              <li>Python</li>
+              <li>MongoDB</li>
+            </ul>
+          </div>
+          <div class="experience-card">
+            <h3>DB Administrator (2018-2019)</h3>
+            <p>
+              Responsable de optimizar consultas, diseñar esquemas y garantizar
+              la integridad de los datos. Una experiencia que me dio perspectiva
+              sobre la importancia de los datos.
+            </p>
+            <ul class="tech-list">
+              <li>PostgreSQL</li>
+              <li>Redis</li>
+              <li>Elasticsearch</li>
+            </ul>
+          </div>
+          <div class="experience-card">
+            <h3>DevOps Engineer (2019-2021)</h3>
+            <p>
+              Automatizando despliegues y construyendo pipelines CI/CD. Aprendí
+              sobre infraestructura escalable y el valor de la observabilidad.
+            </p>
+            <ul class="tech-list">
+              <li>Docker</li>
+              <li>Kubernetes</li>
+              <li>Terraform</li>
+            </ul>
+          </div>
+          <div class="experience-card">
+            <h3>Security Analyst (2021-2022)</h3>
+            <p>
+              Mi transición al mundo de la seguridad, realizando evaluaciones de
+              vulnerabilidades y audits de código. Descubrí mi pasión por la
+              seguridad ofensiva.
+            </p>
+            <ul class="tech-list">
+              <li>OWASP Top 10</li>
+              <li>Burp Suite</li>
+              <li>SAST/DAST</li>
+            </ul>
+          </div>
+          <div class="experience-card">
+            <h3>Pentester (2022-Presente)</h3>
+            <p>
+              Mi rol actual, donde combino todo mi conocimiento previo para
+              pensar como atacante y ayudar a construir sistemas más seguros.
+            </p>
+            <ul class="tech-list">
+              <li>Ethical Hacking</li>
+              <li>Red Team</li>
+              <li>DevSecOps</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="philosophy-section">
+        <h2 class="section-title">🧠 Mi Filosofía Profesional</h2>
+        <div class="philosophy-content">
+          <p>
+            Mi trayectoria poco convencional me ha dado una perspectiva única:
+          </p>
+          <ul class="philosophy-list">
+            <li>
+              <strong>El conocimiento no es lineal:</strong> Mi background en física
+              me ayuda a abordar problemas de seguridad desde primeros principios
+            </li>
+            <li>
+              <strong>Full-stack security:</strong> Entender todos los componentes
+              de un sistema es clave para protegerlo efectivamente
+            </li>
+            <li>
+              <strong>Aprendizaje continuo:</strong> En un campo que evoluciona tan
+              rápido, la adaptabilidad es mi mayor habilidad
+            </li>
+            <li>
+              <strong>Seguridad pragmática:</strong> Balancear riesgos reales con
+              necesidades del negocio
+            </li>
+          </ul>
+          <blockquote class="personal-quote">
+            "De la física aprendí a cuestionar todo, del desarrollo a construir
+            soluciones, y de la seguridad a anticipar fallas antes de que
+            ocurran."
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="current-focus">
+        <h2 class="section-title">🔭 En Qué Estoy Trabajando Ahora</h2>
+        <div class="focus-items">
+          <div class="focus-card">
+            <h3>DevSecOps</h3>
+            <p>
+              Integrando prácticas de seguridad en pipelines CI/CD y promoviendo
+              el "shift left" en las organizaciones donde trabajo.
+            </p>
+          </div>
+          <div class="focus-card">
+            <h3>Pentesting en Aplicaciones Cloud</h3>
+            <p>
+              Especializándome en identificar vulnerabilidades en arquitecturas
+              serverless y entornos multi-nube.
+            </p>
+          </div>
+          <div class="focus-card">
+            <h3>Automatización de Seguridad</h3>
+            <p>
+              Desarrollando scripts y herramientas para hacer más eficiente el
+              trabajo de análisis de seguridad.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="connect-section">
+        <h2 class="section-title">📫 Conéctate Conmigo</h2>
+        <p>
+          ¿Quieres hablar de seguridad, desarrollo o compartir experiencias
+          sobre carreras no lineales en tech?
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link">LinkedIn</a>
+          <a href="#" class="social-link">GitHub</a>
+          <a href="#" class="social-link">Twitter</a>
+          <a href="#" class="social-link">Email</a>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

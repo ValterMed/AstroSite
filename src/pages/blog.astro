@@ -1,5 +1,7 @@
 ---
-
+import "../styles/global.css";
+import Navigation from "../components/Navigation.astro";
+const pageTitle = "Blog";
 ---
 
 <html lang="en">
@@ -8,120 +10,141 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
-    <header>
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-      <a href="/blog/">Blog</a>
-      <h1>
-        DevSecOps: Integrando Seguridad en el Ciclo de Vida del Desarrollo
-      </h1>
-      <nav>
-        <ul>
-          <li><a href="#introduccion">Introducción</a></li>
-          <li><a href="#beneficios">Beneficios</a></li>
-          <li><a href="#practicas">Prácticas Clave</a></li>
-          <li><a href="#herramientas">Herramientas</a></li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="header-content">
+        <h1 class="site-title">DevSecOps Insights</h1>
+        <p class="site-subtitle">Seguridad desde el código hasta la nube</p>
+      </div>
+      <Navigation />
     </header>
 
-    <main>
-      <article id="introduccion">
-        <h2>¿Qué es DevSecOps?</h2>
+    <main class="intro-container">
+      <section class="welcome-section">
+        <h2>Bienvenido al Blog de DevSecOps</h2>
+        <div class="intro-content">
+          <p>
+            En este espacio exploraremos el fascinante mundo donde desarrollo,
+            operaciones y seguridad convergen para construir sistemas más
+            robustos y resilientes.
+          </p>
+
+          <div class="focus-areas">
+            <h3>Nuestros temas principales:</h3>
+            <ul class="tag-cloud">
+              <li>Desarrollo seguro (Secure Coding)</li>
+              <li>Infraestructura segura en la nube</li>
+              <li>Automatización de seguridad</li>
+              <li>IA aplicada a seguridad</li>
+              <li>Shift Left Security</li>
+              <li>Compliance as Code</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mission-section">
+        <h2>Nuestra Misión</h2>
+        <div class="mission-grid">
+          <div class="mission-card">
+            <h3>🔒 Cultura de Seguridad</h3>
+            <p>
+              Promover la seguridad como parte integral del ciclo de vida del
+              desarrollo, no como un añadido posterior.
+            </p>
+          </div>
+          <div class="mission-card">
+            <h3>🤖 Automatización</h3>
+            <p>
+              Explorar herramientas y técnicas para integrar controles de
+              seguridad en pipelines CI/CD.
+            </p>
+          </div>
+          <div class="mission-card">
+            <h3>☁️ Cloud-Native Security</h3>
+            <p>
+              Seguridad para arquitecturas modernas en la nube con enfoque en
+              IaC y entornos dinámicos.
+            </p>
+          </div>
+          <div class="mission-card">
+            <h3>🧠 IA en Seguridad</h3>
+            <p>
+              Aplicaciones prácticas de inteligencia artificial para detección
+              de amenazas y análisis de vulnerabilidades.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="recent-posts">
+        <h2>Últimos Artículos</h2>
+        <div class="post-preview">
+          <article>
+            <h3>
+              <a href="/posts/post-1">Fundamentos de DevSecOps</a>
+            </h3>
+            <p class="post-meta">
+              Publicado: 28 Julio 2025 | Tags: fundamentos, seguridad
+            </p>
+            <p>
+              Introducción a los principios básicos y el modelo mental necesario
+              para adoptar DevSecOps.
+            </p>
+          </article>
+          <article>
+            <h3>
+              <a href="/posts/post-2">Fundamentos Pentesting en Android</a>
+            </h3>
+            <p class="post-meta">
+              Publicado: 28 Julio 2025 | Tags: pentest, android
+            </p>
+            <p>
+              Mejores prácticas para implementar pentest en aplicasiones
+              Android.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="newsletter">
+        <h2>Mantente Actualizado</h2>
         <p>
-          DevSecOps es la evolución natural de DevOps que incorpora prácticas de
-          seguridad desde las primeras etapas del ciclo de desarrollo de
-          software. A diferencia de los enfoques tradicionales donde la
-          seguridad se consideraba al final, DevSecOps integra controles de
-          seguridad de forma continua.
+          Suscríbete para recibir los últimos artículos sobre DevSecOps
+          directamente en tu correo.
         </p>
-        <img
-          src="devsecops-cycle.png"
-          alt="Ciclo de vida DevSecOps"
-          width="600"
-        />
-      </article>
-
-      <article id="beneficios">
-        <h2>Beneficios de Adoptar DevSecOps</h2>
-        <ul>
-          <li>Detección temprana de vulnerabilidades</li>
-          <li>Reducción de costos asociados a parches de seguridad</li>
-          <li>Cumplimiento normativo más eficiente</li>
-          <li>Mayor colaboración entre equipos</li>
-          <li>Entrega más rápida de software seguro</li>
-        </ul>
-      </article>
-
-      <article id="practicas">
-        <h2>Prácticas Clave de DevSecOps</h2>
-        <section>
-          <h3>Shift Left Security</h3>
-          <p>
-            Implementar controles de seguridad desde la fase de diseño y
-            desarrollo, no solo en producción.
-          </p>
-        </section>
-        <section>
-          <h3>Automatización de Seguridad</h3>
-          <p>
-            Integrar herramientas de escaneo automático (SAST, DAST, IAST) en la
-            tubería de CI/CD.
-          </p>
-        </section>
-        <section>
-          <h3>Infraestructura como Código Seguro</h3>
-          <p>
-            Aplicar principios de seguridad al código de infraestructura
-            (Terraform, CloudFormation).
-          </p>
-        </section>
-      </article>
-
-      <article id="herramientas">
-        <h2>Herramientas Populares en DevSecOps</h2>
-        <table>
-          <tr>
-            <th>Categoría</th>
-            <th>Herramienta</th>
-            <th>Descripción</th>
-          </tr>
-          <tr>
-            <td>SAST</td>
-            <td>SonarQube</td>
-            <td>Análisis estático de código para detectar vulnerabilidades</td>
-          </tr>
-          <tr>
-            <td>DAST</td>
-            <td>OWASP ZAP</td>
-            <td>Escaneo dinámico de aplicaciones web</td>
-          </tr>
-          <tr>
-            <td>Contenedores</td>
-            <td>Anchore</td>
-            <td>Escaneo de imágenes de contenedores</td>
-          </tr>
-        </table>
-      </article>
-
-      <aside>
-        <h3>Recursos Adicionales</h3>
-        <ul>
-          <li><a href="https://owasp.org/">OWASP Foundation</a></li>
-          <li><a href="https://www.devsecops.org/">DevSecOps Community</a></li>
-          <li>
-            <a href="https://nvd.nist.gov/">NIST Vulnerability Database</a>
-          </li>
-        </ul>
-      </aside>
+        <form class="subscribe-form">
+          <input type="email" placeholder="tu@email.com" required />
+          <button type="submit">Suscribirme</button>
+        </form>
+      </section>
     </main>
 
-    <footer>
-      <p>© 2023 Blog de DevSecOps. Todos los derechos reservados.</p>
-      <p>Contacto: info@devsecopsblog.com</p>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>DevSecOps Insights</h3>
+          <p>
+            Blog dedicado a la seguridad en el ciclo de vida del desarrollo de
+            software.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Conéctate</h3>
+          <ul class="social-links">
+            <li><a href="#">Twitter</a></li>
+            <li>
+              <a href="#">LinkedIn</a>
+            </li>
+            <li><a href="#">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2025 DevSecOps Insights. Todos los derechos reservados.</p>
+      </div>
     </footer>
   </body>
 </html>

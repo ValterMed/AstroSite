@@ -1,5 +1,8 @@
 ---
-
+import "../styles/global.css";
+import Navigation from "../components/Navigation.astro";
+import localDevSecOpsImage from "../images/DevSecOps.png";
+const pageTitle = "Inicio";
 ---
 
 <html lang="en">
@@ -8,12 +11,108 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
-  <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-	<a href="/blog/">Blog</a>
-    <h1>My Astro Site</h1>
+  <body class="devsecops-theme">
+    <header class="site-header">
+      <div class="header-container">
+        <div class="logo-container">
+          <h1 class="site-title">
+            DevSecOps<span class="highlight">Hub</span>
+          </h1>
+          <img
+            src={localDevSecOpsImage.src}
+            alt="DevSecOps Logo"
+            width="100"
+            height="100"
+            class="site-logo"
+          />
+        </div>
+        <p class="site-tagline">Integrando seguridad en cada línea de código</p>
+      </div>
+
+      <Navigation />
+    </header>
+
+    <main class="hero-section">
+      <div class="hero-content">
+        <h2 class="hero-title">
+          Construyendo Software <span class="secure-text">Seguro</span> por Diseño
+        </h2>
+        <p class="hero-description">
+          Exploramos las mejores prácticas para integrar seguridad en cada fase
+          del ciclo de desarrollo, desde el código hasta la infraestructura en
+          la nube.
+        </p>
+        <div class="hero-cta">
+          <a href="/blog/" class="cta-button">Explora el Blog</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img
+          src="/assets/devsecops-cycle.png"
+          alt="Ciclo DevSecOps"
+          class="responsive-img"
+        />
+      </div>
+    </main>
+
+    <section class="featured-categories">
+      <h2 class="section-title">Temas Destacados</h2>
+      <div class="category-grid">
+        <div class="category-card security-card">
+          <h3>Secure Coding</h3>
+          <p>
+            Prácticas para escribir código resistente a vulnerabilidades desde
+            el principio.
+          </p>
+          <a href="/posts/post-3" class="category-link">Ver artículos →</a>
+        </div>
+        <div class="category-card automation-card">
+          <h3>Automatización</h3>
+          <p>Herramientas para integrar seguridad en tus pipelines CI/CD.</p>
+          <a href="/posts/post-4" class="category-link">Ver artículos →</a>
+        </div>
+        <div class="category-card cloud-card">
+          <h3>Cloud Security</h3>
+          <p>Protegiendo infraestructuras en AWS, Azure y GCP.</p>
+          <a href="/posts/post-5" class="category-link">Ver artículos →</a>
+        </div>
+        <div class="category-card iac-card">
+          <h3>IaC Seguro</h3>
+          <p>Security as Code para Terraform y CloudFormation.</p>
+          <a href="/posts/post-6" class="category-link">Ver artículos →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-about">
+          <h3>DevSecOpsHub</h3>
+          <p>
+            Recursos y conocimiento para integrar seguridad en el ciclo de
+            desarrollo de software.
+          </p>
+        </div>
+        <div class="footer-social">
+          <h3>Conéctate</h3>
+          <div class="social-icons">
+            <a href="https://twitter.com/tuusername" aria-label="Twitter"
+              ><span>Twitter 🐦</span></a
+            >
+            <a href="https://linkedin.com/in/tuusername" aria-label="LinkedIn"
+              ><span>LinkedIn 🔗</span></a
+            >
+            <a href="https://github.com/tuusername" aria-label="GitHub"
+              ><span>GitHub 🐱</span></a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>© 2025 DevSecOpsHub. Todos los derechos reservados.</p>
+      </div>
+    </footer>
   </body>
 </html>
